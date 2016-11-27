@@ -6,6 +6,12 @@ import java.util.Arrays;
 
 public class Graph_call_dijakstra {
 
+	/**
+	 * finds the minimum and maximum in array
+	 * @param arr
+	 * @param arr2
+	 * @return a String which so describes the minimum and maximum 
+	 */
 	public static String minMaxPairs(int []arr, int arr2[]){
 		int min, max, minI=0, maxI=0;
 		int len = arr.length, count = 0;
@@ -73,6 +79,13 @@ public class Graph_call_dijakstra {
 		return (" Tie "+minMaxPairs(allMax,vertexs));}
 		return (" !Tie "+minMaxPairs(allMax,vertexs));
 	}
+	
+	/**
+	 * 
+	 * @param s
+	 * @param vertexList
+	 * @return the result of the dijakstra as string
+	 */
 	public static String seperator(String s, vertex vertexList[] ){
 		String [] arr=s.split(" ");
 		String result;
@@ -123,66 +136,6 @@ public class Graph_call_dijakstra {
 			writer.close();
 		}catch (Exception e) {
 			System.out.println("error");
-		}
-
-
-
-
-
-
-
-//		///////tests////////////////////////
-//				Dijkstra ds = new Dijkstra(vertexList,0); // not always starts in 0
-//				ds.computePaths();
-//				System.out.println("0 to 3");
-//				ds.printPaths(3);
-//				ds.init(vertexList, 1);
-//				ds.computePaths();
-//				System.out.println("1 to 1");
-//		
-//				ds.printPaths(1);
-//				int black_list[]={5};
-//				System.out.println("1 to 0, no 5");
-//				ds.blacklist(black_list, 1,0,vertexList);
-//				ds.init(vertexList, 1);
-//				System.out.println("1 to 5");
-//				ds.computePaths();
-//				ds.printPaths(5);
-//				int [] array={3,4};
-//				System.out.println("0 to 5 not 3,4");
-//				ds.blacklist(array, 0,5,vertexList);
-//				int [] array2={3,4,5};
-//				System.out.println("0 to 1 not 3,4,5");
-//				ds.blacklist(array2, 0,1,vertexList);
-//				int [] array3={3,4};
-//				System.out.println("3 to 1 not 3,4");
-//				ds.blacklist(array3, 3,1,vertexList);
-//				int [] array4={4};
-//				System.out.println("3 to 1 not 4");
-//				ds.blacklist(array4, 3,1,vertexList);
-//		
-//				System.out.println("4 to 5");
-//				ds.init(vertexList, 4);
-//				ds.computePaths();
-//				ds.printPaths(5);
-//		
-//				int [] array5={4};
-//				System.out.println("4 to 4 not 4");
-//				ds.blacklist(array5, 4,4,vertexList);
-//				System.out.println("3 to 2");
-//				ds.init(vertexList, 3);
-//				ds.computePaths();
-//				ds.printPaths(2);
-//				int [] array6={1,0};
-//				System.out.println("4 to 5 not 1,0");
-//				ds.blacklist(array6, 4,5,vertexList);
-//				int [] array7={0};
-//				System.out.println("2 to 3 not 0");
-//				ds.blacklist(array7, 2,3,vertexList);
-//				int [] array8={2,0,1};
-//				System.out.println("3 to 5 not 0");
-//				ds.blacklist(array8, 3,5,vertexList);
-				
-				
+		}				
 	}
 }

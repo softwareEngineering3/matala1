@@ -19,15 +19,20 @@ public class Dijkstra {
 			vertices[i] =new vertex(vs[i]) ;
 		}
 	}
+	
+	// in case that the dijakstra obj already exists
 	public void  init(vertex[] vs, int source){
 		this.source = source;
 		vertices = new   vertex[vs.length];
-		for (int i=0; i<vs.length; i++){ //should we do this??
+		for (int i=0; i<vs.length; i++){ 
 			vertices[i] =new vertex( vs[i]);
 			vertices[i].setCount(0);
 		}
 	}
 
+	/**
+	 * the function which compute the paths from certain way
+	 */
 	public void computePaths(){
 		isOk=true;
 
@@ -71,8 +76,11 @@ public class Dijkstra {
 		}
 		
 
-	}/////
-
+	}
+	
+	/**
+	 * prints the weights of the vertices 
+	 */
 	public void printWeights(){
 		System.out.print("weights: ");
 		for (vertex v : vertices) {
@@ -96,21 +104,34 @@ public class Dijkstra {
 		}
 		return ans;
 	}
+	
+	/**
+	 * print certain path from v vertex to source
+	 * @param v
+	 * @return
+	 */
 	public String printPaths(int v){
 		
 		String stringRes;
 			if(vertices[v].getPrevious()!=-1||source==vertices[v].getName()){
 				String s=getPath(vertices[v].getName());
 				stringRes=source+" " + vertices[v].getName()+" " + vertices[v].getDist();}
-				//System.out.println("price from "+source+" to " + vertices[v].name+" = " + vertices[v].dist + ", path: " +  getPath(vertices[v].name));}
 			else{
 				stringRes="could not find a way "+vertices[v].getName()+" from "+source;
-				//System.out.println("could not find a way  "+vertices[v].name+" from "+source);
 			}
 			return stringRes;
 				
 	}
 
+	
+	/**
+	 * the function which handle blacklists
+	 * @param black_list
+	 * @param source
+	 * @param dest
+	 * @param vs
+	 * @return
+	 */
 	public String blacklist(int [] black_list,int source, int dest, vertex[] vs){
 		//init(vs, source);
 		String arrayToString="";
@@ -141,24 +162,6 @@ public class Dijkstra {
 	}
 
 }
-/*
-			OUTPUT inint1
-		weights: 0.0, 7.0, 9.0, 20.0, 20.0, 11.0, 
-		price of 0 = 0.0, path: 0
-		price of 1 = 7.0, path: 0->1
-		price of 2 = 9.0, path: 0->2
-		price of 3 = 20.0, path: 0->2->3
-		price of 4 = 20.0, path: 0->2->5->4
-		price of 5 = 11.0, path: 0->2->5
-
-		 	OUTPUT inint2
-		weights: 0.0, 8.0, 9.0, 7.0, 5.0, 
-		price of 0 = 0.0, path: 0
-		price of 1 = 8.0, path: 0->4->1
-		price of 2 = 9.0, path: 0->4->1->2
-		price of 3 = 7.0, path: 0->4->3
-		price of 4 = 5.0, path: 0->4
- */
 
 
 
