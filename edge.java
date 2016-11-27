@@ -1,9 +1,25 @@
 public class edge {
 
 
-		public  int vert;
-		public double weight;
+		private  int vert;
+		private double weight;
 		
+		public int getVert() {
+			return vert;
+		}
+
+		public void setVert(int vert) {
+			this.vert = vert;
+		}
+
+		public double getWeight() {
+			return weight;
+		}
+
+		public void setWeight(double weight) {
+			this.weight = weight;
+		}
+
 		/**
 		 * constructor of edge 
 		 * @param v
