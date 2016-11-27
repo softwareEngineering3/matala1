@@ -11,7 +11,7 @@ public class edge {
 		 */
 		
 		public edge(int v, double w){ 
-			System.out.println("h");
+			
 			vert = v; 
 			weight = w; 
 		}
