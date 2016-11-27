@@ -32,7 +32,7 @@ public class Graph {
 			bis = new BufferedInputStream(fis);
 			dis = new DataInputStream(bis);
 
-
+			// dis.available() returns 0 if the file does not have more lines.
 			if(dis.available() != 0){
 				
 				String line;
@@ -44,15 +44,11 @@ public class Graph {
 				ListOfVertexes=new vertex[NumOfVertexes];
 				for(int i=0;i<NumOfVertexes;i++){
 					ListOfVertexes[i]= new vertex(i, Double.POSITIVE_INFINITY);	
-					
 				}
 
-				//System.out.println(NumOfEdges);
 				String[] arr=new String[3];
 
-				// dis.available() returns 0 if the file does not have more lines.
 				for(int i=0;i<NumOfEdges;i++) {
-				//	System.out.println(i);
 					
 					line=dis.readLine();
 					arr=line.split(" ");
@@ -118,11 +114,4 @@ public class Graph {
 		NumOfVertexes = numOfVertexes;
 	}
 
-
-
-	public static void main(String args[]){
-
-		//gets,sets...
-
-	}
 }

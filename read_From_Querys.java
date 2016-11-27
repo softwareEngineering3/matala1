@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class read_From_Querys {
 
-	
+
 	private String [] ListOfQueries;
 	private int NumOfQueries;
 
@@ -17,7 +17,7 @@ public class read_From_Querys {
 		FileInputStream fis = null;
 		BufferedInputStream bis = null;
 		DataInputStream dis = null;
-		
+
 
 		try {
 			fis = new FileInputStream(file);
@@ -27,7 +27,7 @@ public class read_From_Querys {
 
 
 			if(dis.available() != 0){
-				
+
 				String line;
 				line=dis.readLine();
 				NumOfQueries=Integer.parseInt(line)-1;
@@ -35,12 +35,12 @@ public class read_From_Querys {
 				ListOfQueries=new String[NumOfQueries];
 
 				for(int i=0;i<NumOfQueries;i++) {
-					
+
 					line=dis.readLine();
 					ListOfQueries[i]=line;
 				}
 			}
-			
+
 			// dispose all the resources after using them.
 			fis.close();
 			bis.close();
@@ -66,12 +66,12 @@ public class read_From_Querys {
 		return NumOfQueries;
 	}
 
-	
-	
+
+
 	public static void main(String[] args) {
-//		read_From_Querys	 rfq= new read_From_Querys("C:\\Users\\adi\\Desktop\\test1.txt");
-//		for(int i=0;i<rfq.getNumOfQueries();i++)
-//			System.out.println(rfq.getListOfQueries()[i]);
+		//		read_From_Querys	 rfq= new read_From_Querys("C:\\Users\\adi\\Desktop\\test1.txt");
+		//		for(int i=0;i<rfq.getNumOfQueries();i++)
+		//			System.out.println(rfq.getListOfQueries()[i]);
 	}
 
 }

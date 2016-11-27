@@ -8,8 +8,8 @@ public class Dijkstra {
 	int source;
 	int max, maxV;
 	boolean isOk;
-	
-	
+
+
 	public Dijkstra(vertex[] vs, int source){
 		max=-1;
 		maxV=-1;
@@ -38,12 +38,12 @@ public class Dijkstra {
 		for (int i=1; i<vertices.length; i++){
 			Q.minHeapInsert(vertices[i]);
 		}
-		
-		
+
+
 		while (!Q.isEmpty()) {
 			vertex u = Q.heapExtractMin();
 			// Visit each edge exiting u
-			
+
 			for (edge e : u.edges){
 				vertex v = vertices[e.vert];
 				if (!v.visited){
@@ -53,8 +53,6 @@ public class Dijkstra {
 						v.previous = vertices[u.name].name;
 						Q.heapDecreaseKey(v);
 						v.count=u.count+1;
-						
-						
 					}
 					else{
 						isOk=false;
@@ -66,12 +64,8 @@ public class Dijkstra {
 				}
 			}
 			u.visited = true;
-			
-
 		}
-		
-
-	}/////
+	}
 
 	public void printWeights(){
 		System.out.print("weights: ");
@@ -80,9 +74,7 @@ public class Dijkstra {
 		}
 		System.out.println();
 	}
-	
-	
-	
+
 	public String getPath(int v){
 		int t = v;
 		String ans = t + "";
@@ -97,22 +89,18 @@ public class Dijkstra {
 		return ans;
 	}
 	public String printPaths(int v){
-		
+
 		String stringRes;
-			if(vertices[v].previous!=-1||source==vertices[v].name){
-				String s=getPath(vertices[v].name);
-				stringRes=source+" " + vertices[v].name+" " + vertices[v].dist;}
-				//System.out.println("price from "+source+" to " + vertices[v].name+" = " + vertices[v].dist + ", path: " +  getPath(vertices[v].name));}
-			else{
-				stringRes="could not find a way "+vertices[v].name+" from "+source;
-				//System.out.println("could not find a way  "+vertices[v].name+" from "+source);
-			}
-			return stringRes;
-				
+		if(vertices[v].previous!=-1||source==vertices[v].name){
+			String s=getPath(vertices[v].name);
+			stringRes=source+" " + vertices[v].name+" " + vertices[v].dist;}
+		else{
+			stringRes="could not find a way "+vertices[v].name+" from "+source;
+		}
+		return stringRes;
 	}
 
 	public String blacklist(int [] black_list,int source, int dest, vertex[] vs){
-		//init(vs, source);
 		String arrayToString="";
 		for(int vert:black_list){
 			vertices[vert].visited=true;
@@ -130,16 +118,10 @@ public class Dijkstra {
 			i++;
 		}
 		String sBegin = s.substring(0,i);
-	    String sEnd = s.substring(i);
-	    return sBegin + arrayToString + sEnd;
-		
-	}
-	
-	
-	public static void main(String[] args) {
+		String sEnd = s.substring(i);
+		return sBegin + arrayToString + sEnd;
 
 	}
-
 }
 /*
 			OUTPUT inint1
