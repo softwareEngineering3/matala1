@@ -11,6 +11,7 @@ import java.util.Scanner;
 
 public class graph_generator {
 	public static void main(String[] args) {
+System.out.printl("hello");
 		Scanner in = new Scanner(System.in);
 		System.out.println("how much files do you want??");
 		int num=in.nextInt();
