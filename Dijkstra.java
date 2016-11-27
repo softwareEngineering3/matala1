@@ -6,7 +6,8 @@ import java.util.LinkedList;
 public class Dijkstra {
 	vertex[] vertices;
 	int source;
-	int max, maxV;
+	int maxV;
+	double max;
 	boolean isOk;
 	
 	
@@ -57,17 +58,17 @@ public class Dijkstra {
 						v.setDist(distU) ;
 						v.setPrevious(vertices[u.getName()].getName());
 						Q.heapDecreaseKey(v);
-						v.setCount(u.getCount()+1);
+						//v.setCount(u.getCount()+1);
 						
 						
 					}
 					else{
 						isOk=false;
 					}
-					if(max<v.getCount()){
-						maxV=v.getName();
-						max=v.getCount();
-					}
+//					if(max<v.getDist()){
+//						maxV=v.getName();
+//						max=v.getDist();
+//					}
 				}
 			}
 			u.setVisited(true);
@@ -82,11 +83,16 @@ public class Dijkstra {
 	 * prints the weights of the vertices 
 	 */
 	public void printWeights(){
-		System.out.print("weights: ");
+		//System.out.print("weights: ");
+		
 		for (vertex v : vertices) {
-			System.out.println(v.getDist() + ", ");
+			if(max<v.getDist()){
+				max=v.getDist();
+				maxV=v.getName();
+			}
+				
 		}
-		System.out.println();
+	//	System.out.println();
 	}
 	
 	

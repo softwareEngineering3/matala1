@@ -12,8 +12,9 @@ public class Graph_call_dijakstra {
 	 * @param arr2
 	 * @return a String which so describes the minimum and maximum 
 	 */
-	public static String minMaxPairs(int []arr, int arr2[]){
-		int min, max, minI=0, maxI=0;
+	public static String minMaxPairs(double []arr, int arr2[]){
+		double min, max;
+		int minI=0, maxI=0;
 		int len = arr.length, count = 0;
 		count++;
 		if (arr[0]<arr[1]){
@@ -63,13 +64,15 @@ public class Graph_call_dijakstra {
 	}
 	public static String statisticOutput(vertex vertexList[]){
 		boolean isTie = false;
-		int allMax[]=new int[vertexList.length];
+		double allMax[]=new double[vertexList.length];
 		int vertexs[]=new int[vertexList.length];
 		for (int i = 0; i < vertexList.length; i++) {
 			Dijkstra ds = new Dijkstra(vertexList,i);
 			ds.computePaths();
 			if(ds.isOk)
 				isTie=true;
+			
+			ds.printWeights();
 			allMax[i]=ds.max;
 			vertexs[i]=ds.maxV;
 		}
@@ -128,11 +131,13 @@ public class Graph_call_dijakstra {
 				String res=seperator(rfq.getListOfQueries()[i], vertexList);
 				writer.println(res);
 			}
+		
+		
+			String info="Graph: |V|="+gph.getNumOfVertexes()+" |E|="+gph.getNumOfEdges()
+			+statisticOutput(vertexList);
 			long endTime   = System.currentTimeMillis();
 			long totalTime = endTime - startTime;
-		
-			writer.println("Graph: |V|="+gph.getNumOfVertexes()+" |E|="+gph.getNumOfEdges()
-			+statisticOutput(vertexList)+" ,"+totalTime+"ms");
+			writer.println(info+" ,"+totalTime+"ms");
 			writer.close();
 		}catch (Exception e) {
 			System.out.println("error");
