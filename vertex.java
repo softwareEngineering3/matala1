@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 
 class vertex {
-	public int name;
-	public ArrayList<edge> edges;
-	public double dist;
-	public int previous;
-	public boolean visited;
-	public int count;
+	private int name;
+	private ArrayList<edge> edges;
+	private double dist;
+	private int previous;
+	private boolean visited;
+	private int count;
 	
 	public vertex(int name, double dist) {
 		this.name = name; 
@@ -39,6 +39,78 @@ class vertex {
 		for(int i=0;i<edges.size();i++)
 			s+=edges.get(i).toString();
 		return s;
+	}
+	/**
+	 * @return the name
+	 */
+	public int getName() {
+		return name;
+	}
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(int name) {
+		this.name = name;
+	}
+	/**
+	 * @return the edges
+	 */
+	public ArrayList<edge> getEdges() {
+		return edges;
+	}
+	/**
+	 * @param edges the edges to set
+	 */
+	public void setEdges(ArrayList<edge> edges) {
+		this.edges = edges;
+	}
+	/**
+	 * @return the dist
+	 */
+	public double getDist() {
+		return dist;
+	}
+	/**
+	 * @param dist the dist to set
+	 */
+	public void setDist(double dist) {
+		this.dist = dist;
+	}
+	/**
+	 * @return the previous
+	 */
+	public int getPrevious() {
+		return previous;
+	}
+	/**
+	 * @param previous the previous to set
+	 */
+	public void setPrevious(int previous) {
+		this.previous = previous;
+	}
+	/**
+	 * @return the visited
+	 */
+	public boolean isVisited() {
+		return visited;
+	}
+	/**
+	 * @param visited the visited to set
+	 */
+	public void setVisited(boolean visited) {
+		this.visited = visited;
+	}
+	/**
+	 * @return the count
+	 */
+	public int getCount() {
+		return count;
+	}
+	/**
+	 * @param count the count to set
+	 */
+	public void setCount(int count) {
+		this.count = count;
 	}
 }
 

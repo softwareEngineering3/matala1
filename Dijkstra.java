@@ -24,7 +24,7 @@ public class Dijkstra {
 		vertices = new   vertex[vs.length];
 		for (int i=0; i<vs.length; i++){ //should we do this??
 			vertices[i] =new vertex( vs[i]);
-			vertices[i].count=0;
+			vertices[i].setCount(0);
 		}
 	}
 
@@ -32,7 +32,7 @@ public class Dijkstra {
 		isOk=true;
 
 		vertex s = vertices[source];
-		s.dist = 0;
+		s.setDist(0);
 		HeapMin Q = new HeapMin();
 		Q.minHeapInsert(s);
 		for (int i=1; i<vertices.length; i++){
@@ -44,28 +44,28 @@ public class Dijkstra {
 			vertex u = Q.heapExtractMin();
 			// Visit each edge exiting u
 			
-			for (edge e : u.edges){
+			for (edge e : u.getEdges()){
 				vertex v = vertices[e.getVert()];
-				if (!v.visited){
-					double distU = u.dist + e.getWeight();
-					if (distU < v.dist) {//relaxation
-						v.dist = distU ;
-						v.previous = vertices[u.name].name;
+				if (!v.isVisited()){
+					double distU = u.getDist() + e.getWeight();
+					if (distU < v.getDist()) {//relaxation
+						v.setDist(distU) ;
+						v.setPrevious(vertices[u.getName()].getName());
 						Q.heapDecreaseKey(v);
-						v.count=u.count+1;
+						v.setCount(u.getCount()+1);
 						
 						
 					}
 					else{
 						isOk=false;
 					}
-					if(max<v.count){
-						maxV=v.name;
-						max=v.count;
+					if(max<v.getCount()){
+						maxV=v.getName();
+						max=v.getCount();
 					}
 				}
 			}
-			u.visited = true;
+			u.setVisited(true);
 			
 
 		}
@@ -76,7 +76,7 @@ public class Dijkstra {
 	public void printWeights(){
 		System.out.print("weights: ");
 		for (vertex v : vertices) {
-			System.out.println(v.dist + ", ");
+			System.out.println(v.getDist() + ", ");
 		}
 		System.out.println();
 	}
@@ -87,11 +87,11 @@ public class Dijkstra {
 		int t = v;
 		String ans = t + "";
 		while(t != source){
-			if(vertices[t].previous==-1){
+			if(vertices[t].getPrevious()==-1){
 				System.out.println("could not find a way  "+v+" from "+source);
 
 				return null;}
-			t = vertices[t].previous;
+			t = vertices[t].getPrevious();
 			ans = t + "->" + ans;
 		}
 		return ans;
@@ -99,12 +99,12 @@ public class Dijkstra {
 	public String printPaths(int v){
 		
 		String stringRes;
-			if(vertices[v].previous!=-1||source==vertices[v].name){
-				String s=getPath(vertices[v].name);
-				stringRes=source+" " + vertices[v].name+" " + vertices[v].dist;}
+			if(vertices[v].getPrevious()!=-1||source==vertices[v].getName()){
+				String s=getPath(vertices[v].getName());
+				stringRes=source+" " + vertices[v].getName()+" " + vertices[v].getDist();}
 				//System.out.println("price from "+source+" to " + vertices[v].name+" = " + vertices[v].dist + ", path: " +  getPath(vertices[v].name));}
 			else{
-				stringRes="could not find a way "+vertices[v].name+" from "+source;
+				stringRes="could not find a way "+vertices[v].getName()+" from "+source;
 				//System.out.println("could not find a way  "+vertices[v].name+" from "+source);
 			}
 			return stringRes;
@@ -115,10 +115,10 @@ public class Dijkstra {
 		//init(vs, source);
 		String arrayToString="";
 		for(int vert:black_list){
-			vertices[vert].visited=true;
-			vertices[vert].dist=Double.MAX_VALUE;
-			vertices[vert].previous=-1;
-			vertices[vert].edges.clear();
+			vertices[vert].setVisited(true);
+			vertices[vert].setDist(Double.MAX_VALUE);
+			vertices[vert].setPrevious(-1);
+			vertices[vert].getEdges().clear();
 			arrayToString+=" "+ vert+" ";
 		}
 		computePaths();
