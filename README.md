@@ -6,7 +6,13 @@ the problem:
 
 some of the points will be defined as "black-listed" and the path must not go through them.
 
-In this project we use the Dijkstra's shortest path Algorithm.
+also we need to find a radius and diameter of graph
+
+In this project we use the Dijkstra  Algorithm.
+
+input: 2 text file. first is data of graph-vertexes, edges and weight of them. second is list of path than we need to find and black vertexes on there paths.
+
+output: paths between vertexes,diameter,radius of graph and running time of all program 
 
 The open-source we used:
 
