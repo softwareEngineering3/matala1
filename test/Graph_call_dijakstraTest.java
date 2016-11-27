@@ -24,10 +24,10 @@ public class Graph_call_dijakstraTest {
 	
 	@Test
 	public void testStatisticOutput() {
-		src.Vertex[] vertexList = new src.Vertex[3];
-		vertexList[0] = new src.Vertex(0, Double.POSITIVE_INFINITY);
-		vertexList[1] = new src.Vertex(1, Double.POSITIVE_INFINITY);
-		vertexList[2] = new src.Vertex(2, Double.POSITIVE_INFINITY);
+		src.vertex[] vertexList = new src.vertex[3];
+		vertexList[0] = new src.vertex(0, Double.POSITIVE_INFINITY);
+		vertexList[1] = new src.vertex(1, Double.POSITIVE_INFINITY);
+		vertexList[2] = new src.vertex(2, Double.POSITIVE_INFINITY);
 		String value = Graph_call_dijakstra.statisticOutput(vertexList);
 		String check =  " Tie diameter=-1 from 0 to -1 radius=-1 from 1 to -1";
 		assertEquals(value,check);
@@ -35,7 +35,14 @@ public class Graph_call_dijakstraTest {
 	
 	@Test
 	public void testSeperator() {
-		
+		src.vertex[] vertexList = new src.vertex[3];
+		vertexList[0] = new src.vertex(0, Double.POSITIVE_INFINITY);
+		vertexList[1] = new src.vertex(1, Double.POSITIVE_INFINITY);
+		vertexList[2] = new src.vertex(2, Double.POSITIVE_INFINITY);
+		String s = "0 2";
+		String value = Graph_call_dijakstra.seperator(s, vertexList);
+		String check = "could not find a way 2 from 0";
+		assertEquals(value, check);
 	}
 	
 	
