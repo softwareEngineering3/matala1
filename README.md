@@ -22,4 +22,6 @@ http://algs4.cs.princeton.edu/44sp/
 
 moodle of course "algorithm 2"
 
+http://www.vogella.com/tutorials/JavaAlgorithmsDijkstra/article.html
+
 
